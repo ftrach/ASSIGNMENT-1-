@@ -1,0 +1,39 @@
+
+1.
+
+In the Library Management System I have created virtual functions are key in enabling polymorphism. 
+
+A virtual function is a function declared in the base class (In our case, LibraryItem), that is then later overriden by the derived classes  (  Book and Magazine  ). 
+
+The goal of using virtual functions is to allow derived classes to provide their own specicific implementation while maintaining a consistent interface defined by the based class. In simpler terms, is much more organized and easier to read and creates maximum efficiency across the entire code.
+
+
+Polymorphism allows objects of different classes (  like Book and Magazine  ) to be treated as objects of a common base class ( LibraryItem  ), and the correct version of the overriden method will be called at runtime. 
+
+In the system I have created the displayDetails function is declared a virtual function in the base class LibraryItem and is overriden in both Book and Magazine classes.
+
+
+When a base class pointer or reference (  like LibraryItem*  ) is used to refer to a derived object (  like a Book object derived from the LibraryItem class ), the appropriate and most efficient version of displayDetails() is called based on the actual object type, not the type of pointer or reference. 
+
+In our case, displayDetails() is called from the derived "Book" class, and not the original Abstract class "LibraryItem"
+
+This behaviour is due to runtime polymorphism. 
+
+This is not only much more organized, easier to read when handling all real-world scenerios, it is the most efficient way to for the compiler and computer to deal with code and information to make things as smoothly as possible.
+
+
+
+2.
+
+
+A virtual constructor in the base class ensures that when a derived class object (For example, the Book or Magazine class that I have created in my code) is destroyed through a base class pointer (LibraryItem*), the destructor of the derived class is also called, along with the base class destructor. This is necessary for proper cleanup of all the resources that we are using.
+
+Without a virtual destructor, only the base class constructor is called when an object is deleted through a base class pointer.
+
+The destructor of the derived class will not be executed.
+
+This leaves derived class-specific resources improperly cleaned up.
+
+
+
+

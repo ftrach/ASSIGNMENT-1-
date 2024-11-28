@@ -1,0 +1,78 @@
+Requirements:
+1. Templates & STL:
+Function Templates:
+The function template itemSearch is implemented in the Catalog class to search for books by various attributes (title, author, ISBN).
+Functors such as SearchByISBN, SearchByAuthor, and SearchByTitle are used to customize the search based on different attributes.
+Class Templates:
+The Catalog<T> class is a generic class that can manage a collection of any type of LibraryItem (e.g., Book, Magazine).
+2. Container Types:
+STL Containers:
+std::vector is used in the Catalog class to store and manage a collection of Book objects.
+std::map is available to track borrowed books by book ID and borrower details (optional, if implemented for further expansion).
+3. Iterators:
+STL Iterators:
+Iterators are used internally by STL algorithms like std::sort and std::find_if to traverse through the Catalog's vector of books.
+4. Algorithms:
+STL Algorithms:
+std::sort is used to sort books by title, using the SortByTitle functor.
+std::find_if is used to search for books by ISBN or author using the respective search functors (SearchByISBN, SearchByAuthor).
+5. Functors:
+Functors:
+Functors such as SortByTitle, SearchByISBN, and SearchByAuthor are implemented to customize sorting and searching behavior for the catalog.
+6. Inheritance & Polymorphism:
+Base Class & Derived Classes:
+
+The Book class is derived from the base class LibraryItem, which defines common attributes such as title, author, and ISBN.
+LibraryItem is an abstract class with a pure virtual function displayDetails(), which is overridden by Book and potentially Magazine.
+Polymorphic Behavior:
+
+The displayDetails() function is declared as virtual in LibraryItem and overridden in Book to exhibit polymorphic behavior.
+The Catalog class stores pointers to LibraryItem, demonstrating polymorphism by allowing both Book and Magazine objects to be stored in the same catalog.
+7. Abstract Class vs. Concrete Class:
+Abstract Class:
+LibraryItem is an abstract class with pure virtual functions, including displayDetails.
+Concrete Classes:
+Book is a concrete class derived from LibraryItem, and it implements the abstract functions such as displayDetails.
+The optional Magazine class (if implemented) would similarly extend LibraryItem.
+8. Constructors, Destructors, and Virtual Functions:
+Constructors and Destructors:
+Both constructors and destructors are implemented in the LibraryItem and Book classes.
+Virtual destructors ensure proper cleanup of derived class objects when dealing with polymorphism.
+Copy Constructors:
+If required, copy constructors are implemented where necessary, particularly in the Catalog class to ensure deep copies of its contents.
+The Catalog class manages memory safely using STL containers, so explicit destructors are not needed for resource management.
+Assignment Description:
+1. Class Definitions:
+LibraryItem:
+The LibraryItem class contains common attributes like title, author, and ISBN, with pure virtual functions like displayDetails().
+Book:
+The Book class is derived from LibraryItem and adds additional attributes like genre and year. It implements the abstract displayDetails() method from LibraryItem.
+Magazine (Optional):
+The Magazine class can also be derived from LibraryItem for further practice with polymorphism, adding its unique attributes.
+2. Template Classes:
+The Catalog<T> class is a template class that manages a collection of LibraryItem objects (e.g., Book or Magazine). It provides methods to add, remove, and search items.
+3. Function Templates:
+The function template itemSearch() is implemented to search for items by different attributes using functors, enabling flexible searching by title, author, or ISBN.
+4. STL Containers and Algorithms:
+STL Containers:
+std::vector is used to store the list of books within the Catalog class.
+Optionally, std::map can be used to track borrowed books by their ID and borrower details.
+STL Algorithms:
+std::sort is used to sort books by title.
+std::find_if is used to search books by different attributes (title, author, or ISBN).
+5. Functors:
+Functors such as SortByTitle, SearchByISBN, and SearchByAuthor are implemented to allow custom sorting and searching operations within the Catalog.
+6. Polymorphism:
+Virtual Function:
+The displayDetails() function is virtual in LibraryItem and overridden in Book and potentially Magazine to demonstrate polymorphic behavior.
+Catalog with Pointers:
+The Catalog class stores pointers to LibraryItem, allowing it to handle collections of different types of library items (such as books and magazines).
+7. Constructors and Destructors:
+The LibraryItem and Book classes implement necessary constructors and virtual destructors.
+The Catalog class uses default constructors, and the STL automatically manages memory, making explicit destructors unnecessary.
+8. Main Function:
+The main function demonstrates:
+Adding books to the catalog.
+Sorting the catalog by title.
+Searching for books by title, author, and ISBN using the itemSearch function.
+Displaying book details using polymorphism with the displayDetails method.
